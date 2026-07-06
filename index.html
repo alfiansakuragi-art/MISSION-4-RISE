@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>MISSION 4 RISE</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="tittle">
+            <span><ion-icon name="folder-open-outline"></ion-icon></span>
+            <div class="tittle-head">
+                <h1>To Do List</h1>
+                <p>List Your Task Now</p>
+            </div>
+        </div>
+        <div class="total">
+            <p>Total:</p>
+            <p id="total">0</p>
+            <span><ion-icon name="clipboard-outline"></ion-icon></span>
+        </div>
+    </div>
+    <main>
+        <form id="form" class="container" method="#">
+            <div class="form-tittle">
+                <span><ion-icon name="add-circle-outline"></ion-icon></span>
+                <div class="form-text">
+                    <h1>Add New Task</h1>
+                    <p>Create New Task And Stay Productive</p>
+                </div>
+            </div>
+            <div class="input-form">
+                <label for="task">Name Task</label>
+                <input type="text" placeholder="Entry New Task" name="task" id="task" required />
+            </div>
+            <div class="input-form">
+                <label for="desk">Deskription</label>
+                <textarea name="desk" id="desk" placeholder="Deskription" rows="5" cols="40"></textarea>
+            </div>
+            <div class="detail-field">
+                <div class="select-group">
+                    <label for="level">Level</label>
+                    <select name="level" id="level">
+                        <option value="high">high</option>
+                        <option value="medium">medium</option>
+                        <option value="low">low</option>
+                    </select>
+                </div>
+                <div class="select-group">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author">
+                </div>
+            </div>
+            <div class="input-form">
+                <label for="due">Due Date</label>
+                <input id="due" type="date" required />
+            </div>
+            <button type="submit">Add Task <span><ion-icon name="add-outline"></ion-icon></span></button>
+        </form>
+        <div class="list">
+            <div class="card-header">
+                <div class="list-tittle">
+                    <h2>TASK LIST</h2>
+                    <div class="switcher">
+                        <button id="deleteAll"><span><ion-icon name="trash-outline"></ion-icon></span>Delete All Task</button>
+                        <button id="currentTask">Current Task</button>
+                        <button id="doneTask" style="background-color: rgb(39, 255, 39);">Complete Task</button>
+                    </div>
+                </div>
+            </div>
+            <div id="container"></div>
+            <div id="completeTask"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
