@@ -36,7 +36,7 @@ main {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    min-width: 306px;
+    min-width: 372px;
     max-width: 596px;
 }
 
@@ -44,7 +44,7 @@ main {
     background-color: var(--primary-color);
     color: black;
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 40px;
     border-radius: 8px;
     width: 100vw;
     display: flex;
@@ -123,6 +123,7 @@ main {
 }
 
 .select-group input {
+    width: 90%;
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 1rem;
@@ -370,10 +371,10 @@ form button {
 
 
 .high {
-    background-color: rgba(255, 0, 0, 0.45);
-    box-shadow: -11px -1px 0px 3px rgba(255, 0, 0, 0.75);
-    -webkit-box-shadow: -11px 0px 0px 0px rgba(255, 0, 0, 0.75);
-    -moz-box-shadow: -11px -1px 0px 3px rgba(255, 0, 0, 0.75);
+    background-color: red;
+    box-shadow: -22px -1px 5px 0px rgba(255, 0, 0, 0.75);
+    -webkit-box-shadow: -22px -1px 5px 0px rgba(255, 0, 0, 0.75);
+    -moz-box-shadow: -22px -1px 5px 0px rgba(255, 0, 0, 0.75);
 }
 
 .high.task {
@@ -388,21 +389,22 @@ form button {
 }
 
 .medium {
-    background-color: rgba(250, 255, 0, 0.35);
-    box-shadow: -11px 0px 0px 3px rgba(250, 255, 0, 0.75);
-    -webkit-box-shadow: -11px 0px 0px 0px rgba(250, 255, 0, 0.75);
-    -moz-box-shadow: -12px -1px 0px 3px rgba(250, 255, 0, 0.75);
+    background-color: gold;
+    box-shadow: -22px -1px 5px 0px rgba(250, 255, 0, 0.75);
+    -webkit-box-shadow: -22px -1px 5px 0px rgba(250, 255, 0, 0.75);
+    -moz-box-shadow: -22px -1px 5px 0px rgba(250, 255, 0, 0.75);
 }
 
 .medium.task {
-    background-color: rgba(250, 255, 0, 0.65);
+    background-color: rgba(253, 255, 121, 0.65);
     font-weight: 700;
 }
 
 .low {
-    box-shadow: -11px -1px 0px 3px rgba(0, 199, 57, 0.75);
-    -webkit-box-shadow: -11px 0px 0px 0px rgba(0, 199, 57, 0.75);
-    -moz-box-shadow: -11px -1px 0px 3px rgba(0, 199, 57, 0.75);
+    background-color: rgb(0, 189, 0);
+    box-shadow: -22px -1px 5px 0px rgba(66, 255, 0, 0.75);
+    -webkit-box-shadow: -22px -1px 5px 0px rgba(66, 255, 0, 0.75);
+    -moz-box-shadow: -22px -1px 5px 0px rgba(66, 255, 0, 0.75);
 }
 
 .low.task {
@@ -463,10 +465,12 @@ form button {
         border-radius: 8px;
         font-size: 1.4rem;
     }
+
     .check-icon {
         transform: translateY(0);
         transform: translateX(-100%);
     }
+
     .detail {
         flex-direction: row;
         gap: 0;

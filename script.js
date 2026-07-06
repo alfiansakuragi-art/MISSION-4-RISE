@@ -81,9 +81,8 @@ const renderComplete = () => {
                     </div>
                     <h2 style="color: red" class="desk" >Telah di selesaikan</h2>
                     <div class="detail">
-                        <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>${item.author}</p>
-                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due:
-                            ${item.due}</p>
+                        <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>Author: ${item.author}</p>
+                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due: ${item.due}</p>
                     </div>
                     <div class="action">
                         <button class="clear" data-index="${index}"><span><ion-icon name="trash-outline"></ion-icon></span> Delete history</button>
