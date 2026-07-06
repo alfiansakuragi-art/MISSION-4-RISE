@@ -284,8 +284,10 @@ form button {
 }
 
 .detail p {
-    margin-right: 10px;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 5px;
+    max-width: max-content;
 }
 
 .list {

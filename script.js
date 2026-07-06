@@ -82,7 +82,7 @@ const renderComplete = () => {
                     <h2 style="color: red" class="desk" >Telah di selesaikan</h2>
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>${item.author}</p>
-                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Deadline:
+                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due:
                             ${item.due}</p>
                     </div>
                     <div class="action">
@@ -125,7 +125,7 @@ const render = () => {
                     <p class="desk" >${item.desk}</p>
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>${item.author}</p>
-                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Deadline:
+                        <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due:
                             ${item.due}</p>
                     </div>
                     <div class="action">
