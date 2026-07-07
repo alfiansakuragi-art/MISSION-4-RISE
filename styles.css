@@ -413,6 +413,43 @@ form button {
     font-weight: 700;
 }
 
+.rules {
+    word-spacing: 4px;
+    background-color: rgb(250, 255, 238);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.rules h1 {
+    font-family: fantasy;
+    margin-top: 10px;
+    text-align: start;
+}
+
+.rules h3 {
+    text-align: start;
+    font-family: fantasy;
+    font-size: 1.2rem;
+}
+
+.red {
+    font-size: 2rem;
+    color: red;
+    margin-right: 4px;
+}
+.yellow {
+    font-size: 2rem;
+    color: rgb(230, 230, 0);
+    margin-right: 4px;
+}
+.green {
+    font-size: 2rem;
+    color: green;
+    margin-right: 4px;
+}
+
+
 @media (min-width: 1023px) {
     body {
         width: 100vw;
@@ -472,8 +509,4 @@ form button {
         transform: translateX(-100%);
     }
 
-    .detail {
-        flex-direction: row;
-        gap: 0;
-    }
 }
