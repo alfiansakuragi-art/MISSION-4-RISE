@@ -326,10 +326,16 @@ form button {
 }
 
 .list-tittle>h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
     font-size: 1.7rem;
     margin-bottom: 10px;
     transform: translateY(-20px);
     text-align: center;
+    letter-spacing: 4px;
+    word-spacing: 2px;
 }
 
 
@@ -363,7 +369,11 @@ form button {
     display: none;
 }
 
-
+#container,
+#completeTask {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 
 
