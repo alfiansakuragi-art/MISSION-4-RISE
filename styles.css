@@ -91,6 +91,13 @@ main {
     margin-right: 5%;
 }
 
+.clock {
+    margin-top: 10px;
+}
+.clock h2 {
+    font-family: fantasy;
+}
+
 
 .input-form {
     display: flex;

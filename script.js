@@ -14,10 +14,17 @@ const total = $("total");
 const currentTask = $("currentTask");
 const doneTask = $("doneTask");
 const position = $("position");
+const date = $("date");
+
+// Clock
+const hours = String(new Date().getHours()).padStart(2,"0");
+const minutes = String(new Date().getMinutes()).padStart(2,"0");
+
 
 // CONTAINER ID
 const container = $("container");
 const completeTask = $("completeTask");
+const day = ["Minggu","Senin", "Selasa", "Rabu", "kamis", "Jumat", "Sabtu"];
 
 let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
 let taskComplete = JSON.parse(localStorage.getItem("taskComplete")) || [];
@@ -45,6 +52,7 @@ const addTask = () => {
             author: author.value,
             due: due.value,
             position: position.value,
+            createDate: new Date().getDay()
         };
 
         taskList.push(newTask);
@@ -53,6 +61,10 @@ const addTask = () => {
         render();
         renderComplete();
     });
+}
+const renderDate = () => {
+    const newDate = new Date().getDay();
+    date.textContent =`Now: ${day[newDate]}- ${hours}: ${minutes}`
 }
 const deleteAllTask = () => {
     deleteAll.addEventListener("click", () => {
@@ -130,8 +142,8 @@ const renderComplete = () => {
                             <p>${item.level}</p>
                         </div>
                     </div>
-                    <h2 style="color: red" class="desk" >Telah di selesaikan</h2>
-                    <p>tugas dari: ${item.position}</p>
+                    <h2 style="color: red; margin-bottom: 10px;" class="desk" >Telah di selesaikan</h2>
+                    <h3>Done At: ${day[item.createDate]}, ${hours}: ${minutes}</h3>
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>Author: ${item.author}</p>
                         <p><span class="icon"><ion-icon name="man"></ion-icon></span>Position:${item.position}</p>
@@ -169,6 +181,7 @@ const render = () => {
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>Author: ${item.author}</p>
                         <p><span class="icon"><ion-icon name="man"></ion-icon></span>Position:${item.position}</p>
+                        <p><span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>Create on: ${day[item.createDate]} At ${hours}: ${minutes}</p>
                         <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due:${item.due}</p>
                     </div>
                     <div class="action">
@@ -183,7 +196,7 @@ const render = () => {
         switchTask();
     });
 }
-
+renderDate();
 switchToggle();
 addTask();
 deleteAllTask();
