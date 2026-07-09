@@ -17,14 +17,14 @@ const position = $("position");
 const date = $("date");
 
 // Clock
-const hours = String(new Date().getHours()).padStart(2,"0");
-const minutes = String(new Date().getMinutes()).padStart(2,"0");
+const hours = String(new Date().getHours()).padStart(2, "0");
+const minutes = String(new Date().getMinutes()).padStart(2, "0");
 
 
 // CONTAINER ID
 const container = $("container");
 const completeTask = $("completeTask");
-const day = ["Minggu","Senin", "Selasa", "Rabu", "kamis", "Jumat", "Sabtu"];
+const day = ["Minggu", "Senin", "Selasa", "Rabu", "kamis", "Jumat", "Sabtu"];
 
 let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
 let taskComplete = JSON.parse(localStorage.getItem("taskComplete")) || [];
@@ -34,7 +34,7 @@ const switchToggle = () => {
         container.style.display = "none";
         completeTask.style.display = "block";
     })
-    
+
     currentTask.addEventListener("click", () => {
         completeTask.style.display = "none";
         container.style.display = "block";
@@ -52,7 +52,8 @@ const addTask = () => {
             author: author.value,
             due: due.value,
             position: position.value,
-            createDate: new Date().getDay()
+            createDate: new Date().getDay(),
+            createClock: [hours, minutes]
         };
 
         taskList.push(newTask);
@@ -64,7 +65,7 @@ const addTask = () => {
 }
 const renderDate = () => {
     const newDate = new Date().getDay();
-    date.textContent =`Now: ${day[newDate]}- ${hours}: ${minutes}`
+    date.textContent = `Now: ${day[newDate]}- ${hours}: ${minutes}`
 }
 const deleteAllTask = () => {
     deleteAll.addEventListener("click", () => {
@@ -131,8 +132,14 @@ const switchTask = () => {
 
 }
 const renderComplete = () => {
+
     completeTask.innerHTML = "";
     taskComplete.forEach((item, index) => {
+        const dateComplete = {
+            day: day[new Date().getDay()],
+            hours: hours,
+            minutes: minutes
+        }
         const completePage = `
             <div class="task-card low task">
                 <div class="task-list">
@@ -143,7 +150,7 @@ const renderComplete = () => {
                         </div>
                     </div>
                     <h2 style="color: red; margin-bottom: 10px;" class="desk" >Telah di selesaikan</h2>
-                    <h3>Done At: ${day[item.createDate]}, ${hours}: ${minutes}</h3>
+                    <h3>Done At: ${dateComplete.day}-${dateComplete.hours}:${dateComplete.minutes}</h3>
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>Author: ${item.author}</p>
                         <p><span class="icon"><ion-icon name="man"></ion-icon></span>Position:${item.position}</p>
@@ -157,13 +164,17 @@ const renderComplete = () => {
         `
         completeTask.innerHTML += completePage;
         deleteHistory();
-
     })
 
 }
 const render = () => {
     container.innerHTML = "";
     taskList.forEach((item, index) => {
+        const dateOfData = {
+            day: day[item.createDate],
+            hours: item.createClock[0],
+            minutes: item.createClock[1]
+        }
         const card = `
             <div class="task-card ${item.level} task">
                 <div class="check">
@@ -181,7 +192,7 @@ const render = () => {
                     <div class="detail">
                         <p><span class="icon"><ion-icon name="person-outline"></ion-icon></span>Author: ${item.author}</p>
                         <p><span class="icon"><ion-icon name="man"></ion-icon></span>Position:${item.position}</p>
-                        <p><span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>Create on: ${day[item.createDate]} At ${hours}: ${minutes}</p>
+                        <p><span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>Create: At ${dateOfData.day}-${dateOfData.hours}:${dateOfData.minutes}</p>
                         <p><span class="icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>Due:${item.due}</p>
                     </div>
                     <div class="action">
