@@ -16,6 +16,12 @@ const doneTask = $("doneTask");
 const position = $("position");
 const date = $("date");
 
+const timeNow = new Date();
+
+let liveHours = timeNow.getHours();
+let liveMinute = timeNow.getMinutes();
+let liveSecond = timeNow.getSeconds();
+
 // Clock
 const hours = String(new Date().getHours()).padStart(2, "0");
 const minutes = String(new Date().getMinutes()).padStart(2, "0");
@@ -28,6 +34,23 @@ const day = ["Minggu", "Senin", "Selasa", "Rabu", "kamis", "Jumat", "Sabtu"];
 
 let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
 let taskComplete = JSON.parse(localStorage.getItem("taskComplete")) || [];
+
+
+const liveClock = () => {
+setInterval(() => {
+    liveSecond++;
+    if(liveSecond === 60) {
+        liveMinute ++;
+        liveSecond = 0;
+    } else if (liveMinute === 60){
+        liveMinute = 0;
+        liveSecond = 0;
+        liveHours++;
+    } else {
+        $("testing").textContent = `Now: ${String(liveHours).padStart(2, "0")}:${String(liveMinute).padStart(2, "0")}:${String(liveSecond).padStart(2, "0")}`
+    }
+}, 1000)
+}
 
 const switchToggle = () => {
     doneTask.addEventListener("click", () => {
@@ -62,10 +85,6 @@ const addTask = () => {
         render();
         renderComplete();
     });
-}
-const renderDate = () => {
-    const newDate = new Date().getDay();
-    date.textContent = `Now: ${day[newDate]}- ${hours}: ${minutes}`
 }
 const deleteAllTask = () => {
     deleteAll.addEventListener("click", () => {
@@ -140,6 +159,7 @@ const renderComplete = () => {
             hours: hours,
             minutes: minutes
         }
+        
         const completePage = `
             <div class="task-card low task">
                 <div class="task-list">
@@ -207,7 +227,7 @@ const render = () => {
         switchTask();
     });
 }
-renderDate();
+liveClock();
 switchToggle();
 addTask();
 deleteAllTask();
